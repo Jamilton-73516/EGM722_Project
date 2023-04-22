@@ -20,7 +20,7 @@ from shapely.geometry import Point, LineString, Polygon
 #ds = gdal.ViewshedGenerate(
     #src_ds.GetRasterBand(1),
     #"GTiff",
-    #"test1.tif",
+    #"test1.tif", #make sure this is the same as is used for the gpd dataframe
     #["INTERLEAVE=BAND"],
     #ox[0],
     #oy[0],
@@ -49,9 +49,24 @@ viewshed = gpd.read_file('data/viewshed/trackviewshed_polygon_val1.shp')
 viewshed = viewshed.to_crs(epsg=4326) #wgs84
 
 #print(buildings.head())
+#print(landcover.loc[0])
+#print(landcover.loc[landcover['Shape_Area'] > 5000])
+#print(landcover['Shape_Area'].sum() / 1000000)
 
-print(landcover.loc[0])
-print(landcover.loc[landcover['Shape_Area'] > 5000])
+
+
+#clipping landcover by viewshed
+landcover_clip = gpd.clip(landcover, viewshed, keep_geom_type=False)
+
+#export geodataframe to shapefile
+landcover_clip.to_file('lcm_clip_by_viewshed.shp', crs="epsg:4326")
+
+
+
+
+
+
+
 
 
 
