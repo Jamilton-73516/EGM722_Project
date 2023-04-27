@@ -12,41 +12,43 @@ from osgeo import gdal
 from osgeo import osr
 from shapely.geometry import Point, LineString, Polygon
 
-#ox=[292890] # obs x in srs units
-#oy=[428388] # obs y in srs units
-#oz=[2] # obs height metres above DEM
-#src_ds = gdal.Open('data/ni_dtm/ni_dtm.tif')
+def viewshedcreate():
+    ox=[292890] # obs x in srs units
+    oy=[428388] # obs y in srs units
+    oz=[1] # obs height metres above DEM
+    src_ds = gdal.Open('data/ni_dtm/ni_dtm.tif')
 
-#ds = gdal.ViewshedGenerate(
-    #src_ds.GetRasterBand(1),
-    #"GTiff",
-    #"test1.tif", #make sure this is the same as is used for the gpd dataframe
-    #["INTERLEAVE=BAND"],
-    #ox[0],
-    #oy[0],
-    #oz[0],
-    #0,  # targetHeight
-    #255,  # visibleVal
-    #0,  # invisibleVal
-    #0,  # outOfRangeVal
-    #-1.0,  # noDataVal,
-    #0.85714,  # dfCurvCoeff
-    #gdal.GVM_Edge,
-    #0,  # maxDistance
-    #heightMode=gdal.GVOT_MIN_TARGET_HEIGHT_FROM_GROUND,
-    #options=["UNUSED=YES"],
-#)
+    ds = gdal.ViewshedGenerate(
+        src_ds.GetRasterBand(1),
+        "GTiff", #geotiff
+        "test1.tif", #make sure this is the same as is used for the gpd dataframe
+        ["INTERLEAVE=BAND"],
+        ox[0],
+        oy[0],
+        oz[0],
+        0,  # targetHeight
+        255,  # visibleVal
+        0,  # invisibleVal
+        0,  # outOfRangeVal
+        -1.0,  # noDataVal,
+        0.85714,  # dfCurvCoeff
+        gdal.GVM_Edge,
+        0,  # maxDistance
+        heightMode=gdal.GVOT_NORMAL,
+        options=["UNUSED=YES"],
+    )
 
+viewshedcreate()
 
 # import shapefiles, transform to WGS84
-landcover = gpd.read_file('data/landcover/landcover.shp')
-landcover = landcover.to_crs(epsg=4326) #wgs84
-buildings = gpd.read_file('data/buildings/buildings_binevenagh.shp')
-buildings = buildings.to_crs(epsg=4346) #wgs84
+#landcover = gpd.read_file('data/landcover/landcover.shp')
+#landcover = landcover.to_crs(epsg=4326) #wgs84
+#buildings = gpd.read_file('data/buildings/buildings_binevenagh.shp')
+#buildings = buildings.to_crs(epsg=4346) #wgs84
 
 # import temporary viewshed while viewshed tool is broken
-viewshed = gpd.read_file('data/viewshed/trackviewshed_polygon_val1.shp')
-viewshed = viewshed.to_crs(epsg=4326) #wgs84
+#viewshed = gpd.read_file('data/viewshed/trackviewshed_polygon_val1.shp')
+#viewshed = viewshed.to_crs(epsg=4326) #wgs84
 
 #print(buildings.head())
 #print(landcover.loc[0])
@@ -56,10 +58,10 @@ viewshed = viewshed.to_crs(epsg=4326) #wgs84
 
 
 #clipping landcover by viewshed
-landcover_clip = gpd.clip(landcover, viewshed, keep_geom_type=False)
+#landcover_clip = gpd.clip(landcover, viewshed, keep_geom_type=False)
 
 #export geodataframe to shapefile
-landcover_clip.to_file('lcm_clip_by_viewshed.shp', crs="epsg:4326")
+#landcover_clip.to_file('lcm_clip_by_viewshed.shp', crs="epsg:4326")
 
 
 
