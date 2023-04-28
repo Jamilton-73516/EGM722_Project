@@ -10,16 +10,18 @@ import rasterstats
 import cartopy.crs as ccrs
 from osgeo import gdal
 from osgeo import osr
+from osgeo import ogr
 from shapely.geometry import Point, LineString, Polygon
+import sys
 
 def viewshedcreate():
-    ox=[292890] # obs x in srs units
-    oy=[428388] # obs y in srs units
-    oz=[1] # obs height metres above DEM
-    src_ds = gdal.Open('data/ni_dtm/ni_dtm.tif')
+    ox=[274368] # obs x in srs units
+    oy=[433564] # obs y in srs units
+    oz=[2] # obs height metres above DEM
+    src_ds_dem = gdal.Open('data/ni_dtm/ni_dtm.tif')
 
     ds = gdal.ViewshedGenerate(
-        src_ds.GetRasterBand(1),
+        src_ds_dem.GetRasterBand(1),
         "GTiff", #geotiff
         "test1.tif", #make sure this is the same as is used for the gpd dataframe
         ["INTERLEAVE=BAND"],
@@ -37,8 +39,45 @@ def viewshedcreate():
         heightMode=gdal.GVOT_NORMAL,
         options=["UNUSED=YES"],
     )
-
 viewshedcreate()
+
+def pixelcount():
+    vs_pix = gdal.Open('test1.tif')
+    band = vs_pix.GetRasterBand(1)
+    Cols = vs_pix.RasterXSize
+    Rows = vs_pix.RasterYSize
+    data = band.ReadAsArray(0, 0, Cols, Rows).astype(float)
+
+    class1 = np.where(data==255)
+    print(np.sum(class1))
+pixelcount()
+
+def rast2poly():
+    src_ds_rast = gdal.Open('test1.tif')
+    srcband = src_ds_rast.GetRasterBand(1)
+    dst_layername = 'layernametest'
+    drv = ogr.GetDriverByName("ESRI Shapefile")
+    dst_ds = drv.CreateDataSource('data/outputs/conversiontest.shp')
+
+    sp_ref = osr.SpatialReference()
+    sp_ref.SetFromUserInput('EPSG:29902')
+
+    dst_layer = dst_ds.CreateLayer(dst_layername, srs = sp_ref)
+
+    fld = ogr.FieldDefn("HA", ogr.OFTInteger)
+    dst_layer.CreateField(fld)
+    dst_field = dst_layer.GetLayerDefn().GetFieldIndex("HA")
+
+    gdal.Polygonize(srcband, None, dst_layer, dst_field, [], callback=None)
+
+    del src_ds_rast
+    del dst_ds
+rast2poly()
+
+
+
+
+
 
 # import shapefiles, transform to WGS84
 #landcover = gpd.read_file('data/landcover/landcover.shp')

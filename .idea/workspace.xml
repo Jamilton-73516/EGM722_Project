@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f150c621-5c07-462b-884c-8aa91dbd14f0" name="Changes" comment="clip landcover by viewshed (using temp viewshed atm), and export to shapefile" />
+    <list default="true" id="f150c621-5c07-462b-884c-8aa91dbd14f0" name="Changes" comment="added: function to convert viewshed raster to a polygon&#10;added: pixel count for viewshed, visible pixels">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ni_dtm/ni_dtm.tif.aux.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/ni_dtm/ni_dtm.tif.aux.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test1.tif" beforeDir="false" afterPath="$PROJECT_DIR$/test1.tif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewshed_tool.py" beforeDir="false" afterPath="$PROJECT_DIR$/viewshed_tool.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682172274856</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="viewshed fixed: now creates a binary raster, rather than calculating the height at which each cell would be visible from the observer spot">
+      <created>1682607336030</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682607336030</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -89,6 +101,7 @@
     <MESSAGE value="added gdal viewshed example" />
     <MESSAGE value="import shapefiles, begin analysis part" />
     <MESSAGE value="clip landcover by viewshed (using temp viewshed atm), and export to shapefile" />
-    <option name="LAST_COMMIT_MESSAGE" value="clip landcover by viewshed (using temp viewshed atm), and export to shapefile" />
+    <MESSAGE value="viewshed fixed: now creates a binary raster, rather than calculating the height at which each cell would be visible from the observer spot" />
+    <option name="LAST_COMMIT_MESSAGE" value="viewshed fixed: now creates a binary raster, rather than calculating the height at which each cell would be visible from the observer spot" />
   </component>
 </project>
