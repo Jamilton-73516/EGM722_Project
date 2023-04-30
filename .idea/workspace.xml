@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f150c621-5c07-462b-884c-8aa91dbd14f0" name="Changes" comment="added: function to convert viewshed raster to a polygon&#10;added: pixel count for viewshed, visible pixels">
+    <list default="true" id="f150c621-5c07-462b-884c-8aa91dbd14f0" name="Changes" comment="It's alive!&#10;Added: function to select visible areas and export&#10;Added: function to clip landcover map of the north coast by the visible viewshed polys&#10;Changed some naming">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/ni_dtm/ni_dtm.tif.aux.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/ni_dtm/ni_dtm.tif.aux.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test1.tif" beforeDir="false" afterPath="$PROJECT_DIR$/test1.tif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lcm_clip_by_viewshed.cpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lcm_clip_by_viewshed.dbf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lcm_clip_by_viewshed.prj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lcm_clip_by_viewshed.shp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lcm_clip_by_viewshed.shx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test1.tif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/viewshed_tool.py" beforeDir="false" afterPath="$PROJECT_DIR$/viewshed_tool.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

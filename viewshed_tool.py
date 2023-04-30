@@ -13,6 +13,7 @@ from osgeo import osr
 from osgeo import ogr
 from shapely.geometry import Point, LineString, Polygon
 import sys
+import fiona #to support different drivers for geodataframe to file
 
 def viewshedcreate():
     ox=[274368] # obs x in srs units
@@ -23,7 +24,7 @@ def viewshedcreate():
     ds = gdal.ViewshedGenerate(
         src_ds_dem.GetRasterBand(1),
         "GTiff", #geotiff
-        "test1.tif", #make sure this is the same as is used for the gpd dataframe
+        "data/outputs/viewshed_northcoast.tif", #make sure this is the same as is used for the gpd dataframe
         ["INTERLEAVE=BAND"],
         ox[0],
         oy[0],
@@ -42,7 +43,7 @@ def viewshedcreate():
 viewshedcreate()
 
 def pixelcount():
-    vs_pix = gdal.Open('test1.tif')
+    vs_pix = gdal.Open('data/outputs/viewshed_northcoast.tif')
     band = vs_pix.GetRasterBand(1)
     Cols = vs_pix.RasterXSize
     Rows = vs_pix.RasterYSize
@@ -53,26 +54,41 @@ def pixelcount():
 pixelcount()
 
 def rast2poly():
-    src_ds_rast = gdal.Open('test1.tif')
+    src_ds_rast = gdal.Open('data/outputs/viewshed_northcoast.tif')
     srcband = src_ds_rast.GetRasterBand(1)
     dst_layername = 'layernametest'
     drv = ogr.GetDriverByName("ESRI Shapefile")
-    dst_ds = drv.CreateDataSource('data/outputs/conversiontest.shp')
+    dst_ds = drv.CreateDataSource('data/outputs/viewshed_poly.shp')
 
     sp_ref = osr.SpatialReference()
     sp_ref.SetFromUserInput('EPSG:29902')
 
     dst_layer = dst_ds.CreateLayer(dst_layername, srs = sp_ref)
 
-    fld = ogr.FieldDefn("HA", ogr.OFTInteger)
+    fld = ogr.FieldDefn("visible", ogr.OFTInteger)
     dst_layer.CreateField(fld)
-    dst_field = dst_layer.GetLayerDefn().GetFieldIndex("HA")
+    dst_field = dst_layer.GetLayerDefn().GetFieldIndex("visible")
 
     gdal.Polygonize(srcband, None, dst_layer, dst_field, [], callback=None)
 
     del src_ds_rast
     del dst_ds
 rast2poly()
+
+def vs_visible_select():
+    vs_visible = gpd.read_file('data/outputs/viewshed_poly.shp')
+    vs_visible[vs_visible['visible']==255].to_file('data/outputs/viewshed_visible.shp')
+vs_visible_select()
+
+def lcm_clip():
+    vs_mask = gpd.read_file('data/outputs/viewshed_visible.shp')
+    vs_mask_tm65 = vs_mask.to_crs(epsg=29902)
+    landcover = gpd.read_file('data/landcover/landcover.shp')
+    landcover_tm65 = landcover.to_crs(epsg=29902)
+    landcover_clipped = gpd.clip(landcover_tm65, vs_mask_tm65)
+    landcover_clipped.to_file('data/outputs/landcover_clipped.shp')
+lcm_clip()
+
 
 
 
