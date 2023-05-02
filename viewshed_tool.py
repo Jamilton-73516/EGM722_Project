@@ -15,6 +15,11 @@ from shapely.geometry import Point, LineString, Polygon
 import sys
 import fiona #to support different drivers for geodataframe to file
 
+desired_width=320
+pd.set_option('display.width', desired_width)
+np.set_printoptions(linewidth=desired_width)
+pd.set_option('display.max_columns', None)
+
 def viewshedcreate():
     ox=[274368] # obs x in srs units
     oy=[433564] # obs y in srs units
@@ -42,16 +47,16 @@ def viewshedcreate():
     )
 viewshedcreate()
 
-def pixelcount():
-    vs_pix = gdal.Open('data/outputs/viewshed_northcoast.tif')
-    band = vs_pix.GetRasterBand(1)
-    Cols = vs_pix.RasterXSize
-    Rows = vs_pix.RasterYSize
-    data = band.ReadAsArray(0, 0, Cols, Rows).astype(float)
+#def pixelcount():
+    #vs_pix = gdal.Open('data/outputs/viewshed_northcoast.tif')
+    #band = vs_pix.GetRasterBand(1)
+    #Cols = vs_pix.RasterXSize
+    #Rows = vs_pix.RasterYSize
+    #data = band.ReadAsArray(0, 0, Cols, Rows).astype(float)
 
-    class1 = np.where(data==255)
-    print(np.sum(class1))
-pixelcount()
+    #class1 = np.where(data==255)
+    #print(np.sum(class1))
+#pixelcount()
 
 def rast2poly():
     src_ds_rast = gdal.Open('data/outputs/viewshed_northcoast.tif')
@@ -89,5 +94,12 @@ def lcm_clip():
     landcover_clipped.to_file('data/outputs/landcover_clipped.shp')
 lcm_clip()
 
+def lcm_stats():
+    lcm = gpd.read_file('data/outputs/landcover_clipped.shp')
+    lcm = lcm.to_crs(epsg=29902)
+    lcm["lcm_area"] = lcm['geometry'].area
+    print(list(lcm.columns))
+    print(lcm.groupby(['category'])['lcm_area'].sum()/ 10**6)
 
 
+lcm_stats()
