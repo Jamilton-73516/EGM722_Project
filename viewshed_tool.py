@@ -116,7 +116,11 @@ def building_select():
     bld_visible.to_file('data/outputs/buildings_visible.shp')
 building_select()
 
-
+def building_stats():
+    bld = gpd.read_file('data/outputs/buildings_visible.shp')
+    bld = bld.to_crs(epsg=29902)
+    print(bld.groupby(['USE'])['USE'].count())
+building_stats()
 
 #map plotting
 # def makemap():
