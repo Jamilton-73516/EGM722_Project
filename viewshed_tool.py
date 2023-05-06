@@ -6,6 +6,8 @@ import rasterio as rio
 import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
+from mpl_toolkits.axes_grid1 import make_axes_locatable
+from cartopy.feature import ShapelyFeature
 import rasterstats
 import cartopy.crs as ccrs
 from osgeo import gdal
@@ -15,6 +17,7 @@ from shapely.geometry import Point, LineString, Polygon
 import sys
 import fiona #to support different drivers for geodataframe to file
 
+#set pycharm display to show all columns of data
 desired_width=320
 pd.set_option('display.width', desired_width)
 np.set_printoptions(linewidth=desired_width)
@@ -97,9 +100,49 @@ lcm_clip()
 def lcm_stats():
     lcm = gpd.read_file('data/outputs/landcover_clipped.shp')
     lcm = lcm.to_crs(epsg=29902)
-    lcm["lcm_area"] = lcm['geometry'].area
+    lcm["lcm_area"] = lcm['geometry'].area #creates area values for each attribute
     print(list(lcm.columns))
     print(lcm.groupby(['category'])['lcm_area'].sum()/ 10**6)
-
+    #maybe figure out a way to export this as a csv or something, just a quick summary of stuff
 
 lcm_stats()
+
+def building_select():
+    bld = gpd.read_file('data/inputs/buildings_binevenagh.shp')
+    vs = gpd.read_file('data/outputs/viewshed_visible.shp')
+    bld = bld.to_crs(epsg=29902)
+    vs = vs.to_crs(epsg=29902)
+    bld_visible = gpd.sjoin(bld, vs, how='inner', predicate='within')
+    bld_visible.to_file('data/outputs/buildings_visible.shp')
+building_select()
+
+
+
+#map plotting
+# def makemap():
+#     def gen_handles(labels, colors, edge="k", alpha=1):
+#         lc = lens(colors)
+#         handles = []
+#         for i in range(len(labels)):
+#             handles.append(mpatches.Rectangle((0, 0), 1, 1, facecolor=colors[i % lc], edgecolor=edge, alpha=alpha))
+#         return handles
+#
+#     def displaymap():
+#         #load files
+#         lcm = gpd.read_file('data/outputs/landcover_clipped.shp')
+#         lcm = lcm.to_crs(epsg=4326)
+#         outline = gpd.read_file('data/outline/NI_outline.shp')
+#         outline = outline.to_crs(epsg=4326)
+#         #create plot
+#         myCRS = ccrs.UTM(29)
+#         fig, ax = plt.subplots(1, 1, figsize=(10, 10), subplot_kw=(projection=myCRS))
+#
+#         outline_feature = ShapelyFeature(outline['geometry'], myCRS, edgecolor='k', facecolor='w')
+#         xmin, ymin, xmax, ymax = outline.total_bounds
+#         ax.add_feature(outline_feature)
+#
+#         ax.set_extent([xmin-5000, xmax+5000, ymin-5000, ymax+5000], crs=myCRS)
+#         lcm_colors= ["silver", "firebrick", "sandybrown", "olivedrab", "lightseagreen", "navy", "mediumvioletred"]
+
+
+
