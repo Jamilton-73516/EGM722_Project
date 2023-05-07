@@ -4,9 +4,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f150c621-5c07-462b-884c-8aa91dbd14f0" name="Changes" comment="It's alive!&#10;Added: function to select visible areas and export&#10;Added: function to clip landcover map of the north coast by the visible viewshed polys&#10;Changed some naming">
+    <list default="true" id="f150c621-5c07-462b-884c-8aa91dbd14f0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/buildings/buildings_binevenagh.cpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/buildings/buildings_binevenagh.dbf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/buildings/buildings_binevenagh.prj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/buildings/buildings_binevenagh.sbn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/buildings/buildings_binevenagh.sbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/buildings/buildings_binevenagh.shp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/buildings/buildings_binevenagh.shp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/buildings/buildings_binevenagh.shx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/landcover/landcover.dbf" beforeDir="false" afterPath="$PROJECT_DIR$/data/landcover/landcover.dbf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/landcover/landcover.shp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/landcover/landcover.shp.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/ni_dtm/ni_dtm.tif.aux.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/ni_dtm/ni_dtm.tif.aux.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/track_point/track_centre.cpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/track_point/track_centre.dbf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/track_point/track_centre.prj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/track_point/track_centre.sbn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/track_point/track_centre.sbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/track_point/track_centre.shp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/track_point/track_centre.shp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/track_point/track_centre.shx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed.tfw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed.tif.aux.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed.tif.vat.cpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed.tif.vat.dbf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon.cpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon.dbf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon.prj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon.sbn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon.sbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon.shp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon.shp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon.shx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon_val1.cpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon_val1.dbf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon_val1.prj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon_val1.sbn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon_val1.sbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon_val1.shp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon_val1.shp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon_val1.shx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lcm_clip_by_viewshed.cpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lcm_clip_by_viewshed.dbf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lcm_clip_by_viewshed.prj" beforeDir="false" />
@@ -97,7 +136,35 @@
       <option name="project" value="LOCAL" />
       <updated>1682607336030</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added: Generating stats for land cover analysis within the viewshed">
+      <created>1683025784024</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683025784024</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added: select building points within viewshed and export shapefile">
+      <created>1683379164495</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683379164495</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added: select building points within viewshed and export shapefile&#10;Added: find statistics for the points e.g. USE">
+      <created>1683380507570</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683380507570</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added: map?&#10;Creates plot of LCM&#10;Needs: its own function, scalebar fixed, appropriate legend colours rather than randomly assigned, need separate map for buildings">
+      <created>1683387121335</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683387121335</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -107,6 +174,10 @@
     <MESSAGE value="import shapefiles, begin analysis part" />
     <MESSAGE value="clip landcover by viewshed (using temp viewshed atm), and export to shapefile" />
     <MESSAGE value="viewshed fixed: now creates a binary raster, rather than calculating the height at which each cell would be visible from the observer spot" />
-    <option name="LAST_COMMIT_MESSAGE" value="viewshed fixed: now creates a binary raster, rather than calculating the height at which each cell would be visible from the observer spot" />
+    <MESSAGE value="Added: Generating stats for land cover analysis within the viewshed" />
+    <MESSAGE value="Added: select building points within viewshed and export shapefile" />
+    <MESSAGE value="Added: select building points within viewshed and export shapefile&#10;Added: find statistics for the points e.g. USE" />
+    <MESSAGE value="Added: map?&#10;Creates plot of LCM&#10;Needs: its own function, scalebar fixed, appropriate legend colours rather than randomly assigned, need separate map for buildings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added: map?&#10;Creates plot of LCM&#10;Needs: its own function, scalebar fixed, appropriate legend colours rather than randomly assigned, need separate map for buildings" />
   </component>
 </project>
