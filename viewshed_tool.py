@@ -36,7 +36,7 @@ def viewshedcreate():
         oy[0],
         oz[0],
         0,  # target height
-        255,  # visible value
+        1,  # visible value
         0,  # invisible value
         0,  # out of range vlaue
         -1.0,  # no data value,
@@ -72,9 +72,9 @@ def rast2poly():
 rast2poly()
 
 def vs_visible_select():
-    '''Takes viewshed polygon shapefile, returns only the visible values i.e. those with 255, exports to shapefile'''
+    '''Takes viewshed polygon shapefile, returns only the visible values i.e. those with 1, exports to shapefile'''
     vs_visible = gpd.read_file('data/outputs/viewshed_poly.shp') # viewshed polygon shapefile location
-    vs_visible[vs_visible['visible']==255].to_file('data/outputs/viewshed_visible.shp') # select polygons with value of 255, exports to output location
+    vs_visible[vs_visible['visible']==1].to_file('data/outputs/viewshed_visible.shp') # select polygons with value of 1, exports to output location
 vs_visible_select()
 
 def lcm_clip():
@@ -180,3 +180,4 @@ def create_lcm_map():
 
     myFig.savefig('data/outputs/landcover_map.png', bbox_inches='tight', dpi=300) # Save map figure to desired location and filetype. bbox_inches='tight' crops the image to the axis. 300 dots per inch
 create_lcm_map()
+
