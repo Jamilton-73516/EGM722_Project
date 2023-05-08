@@ -4,56 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f150c621-5c07-462b-884c-8aa91dbd14f0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/buildings/buildings_binevenagh.cpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/buildings/buildings_binevenagh.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/buildings/buildings_binevenagh.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/buildings/buildings_binevenagh.sbn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/buildings/buildings_binevenagh.sbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/buildings/buildings_binevenagh.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/buildings/buildings_binevenagh.shp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/buildings/buildings_binevenagh.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/landcover/landcover.dbf" beforeDir="false" afterPath="$PROJECT_DIR$/data/landcover/landcover.dbf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/landcover/landcover.shp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/landcover/landcover.shp.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ni_dtm/ni_dtm.tif.aux.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/ni_dtm/ni_dtm.tif.aux.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/track_point/track_centre.cpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/track_point/track_centre.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/track_point/track_centre.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/track_point/track_centre.sbn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/track_point/track_centre.sbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/track_point/track_centre.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/track_point/track_centre.shp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/track_point/track_centre.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed.tfw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed.tif.aux.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed.tif.vat.cpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed.tif.vat.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon.cpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon.sbn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon.sbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon.shp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon_val1.cpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon_val1.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon_val1.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon_val1.sbn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon_val1.sbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon_val1.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon_val1.shp.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/viewshed/trackviewshed_polygon_val1.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lcm_clip_by_viewshed.cpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lcm_clip_by_viewshed.dbf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lcm_clip_by_viewshed.prj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lcm_clip_by_viewshed.shp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lcm_clip_by_viewshed.shx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test1.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/viewshed_tool.py" beforeDir="false" afterPath="$PROJECT_DIR$/viewshed_tool.py" afterDir="false" />
-    </list>
+    <list default="true" id="f150c621-5c07-462b-884c-8aa91dbd14f0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

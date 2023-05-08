@@ -1,0 +1,17 @@
+name: EGM722_Project
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - pandas
+  - geopandas
+  - cartopy
+  - notebook
+  - rasterio
+  - pyepsg
+  - folium
+  - matplotlib
+  - numpy
+  - osgeo
+  
