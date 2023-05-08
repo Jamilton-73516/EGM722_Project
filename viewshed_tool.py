@@ -94,7 +94,7 @@ def lcm_stats():
     lcm["lcm_area"] = lcm['geometry'].area #creates area geometry values for each attribute
     print(lcm.groupby(['category'])['lcm_area'].sum()/ 10**6) # prints list of landcover category area values in km2
     print(lcm.groupby(['landcover'])['lcm_area'].sum()/ 10**6) # prints list of landcover area values in km2
-    print('Total Area (km2): {}'.format(lcm['lcm_area'].sum()/ 10**6)) # prints sum total of all area visible
+    print('Total Area (km2): {:.6f}'.format(lcm['lcm_area'].sum()/ 10**6)) # prints sum total of all area visible
 lcm_stats()
 
 def create_lcm_map():
