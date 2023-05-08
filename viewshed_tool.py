@@ -93,24 +93,9 @@ def lcm_stats():
     lcm = lcm.to_crs(epsg=29902) # ensures it is set to TM65 Irish National Grid
     lcm["lcm_area"] = lcm['geometry'].area #creates area geometry values for each attribute
     print(lcm.groupby(['category'])['lcm_area'].sum()/ 10**6) # prints list of landcover category area values in km2
+    print(lcm.groupby(['landcover'])['lcm_area'].sum()/ 10**6) # prints list of landcover area values in km2
+    print('Total Area (km2): {}'.format(lcm['lcm_area'].sum()/ 10**6)) # prints sum total of all area visible
 lcm_stats()
-
-#def point_select():
-    '''Takes viewshed shapefile and selects point locations within'''
-    #pnt = gpd.read_file('data/inputs/buildings_binevenagh.shp')
-    #vs = gpd.read_file('data/outputs/viewshed_visible.shp')
-    #pnt = pnt.to_crs(epsg=29902)
-    #vs = vs.to_crs(epsg=29902)
-    #pnt_visible = gpd.sjoin(pnt, vs, how='inner', predicate='within')
-    #pnt_visible.to_file('data/outputs/buildings_visible.shp')
-#point_select()
-
-#def point_stats():
-    '''Takes points within viewshed and finds statistics'''
-    #pnt = gpd.read_file('data/outputs/buildings_visible.shp')
-    #pnt = pnt.to_crs(epsg=29902)
-    #print(pnt.groupby(['USE'])['USE'].count())
-#point_stats()
 
 def create_lcm_map():
     '''Creates a map plot of the visible landcover'''
