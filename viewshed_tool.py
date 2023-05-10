@@ -20,7 +20,8 @@ np.set_printoptions(linewidth=desired_width)
 pd.set_option('display.max_columns', None)
 
 def viewshedcreate():
-    '''Takes a raster DEM, returns a raster viewshed. Creates based on an observer point's X and Y location, and Y height
+    '''
+    Takes a raster DEM, returns a raster viewshed. Creates based on an observer point's X and Y location, and Y height
     '''
     ox=[274368] # observer X location in srs units
     oy=[433564] # observer Y location in srs units
@@ -49,7 +50,9 @@ def viewshedcreate():
 viewshedcreate()
 
 def rast2poly():
-    '''Takes viewshed raster, converts to a polygon and exports to shapefile'''
+    '''
+    Takes viewshed raster, converts to a polygon and exports to shapefile
+    '''
     src_ds_rast = gdal.Open('data/outputs/viewshed_northcoast.tif') # viewshed raster location
     srcband = src_ds_rast.GetRasterBand(1)
     dst_layername = 'layernametest'
@@ -72,13 +75,17 @@ def rast2poly():
 rast2poly()
 
 def vs_visible_select():
-    '''Takes viewshed polygon shapefile, returns only the visible values i.e. those with 1, exports to shapefile'''
+    '''
+    Takes viewshed polygon shapefile, returns only the visible values i.e. those with 1, exports to shapefile
+    '''
     vs_visible = gpd.read_file('data/outputs/viewshed_poly.shp') # viewshed polygon shapefile location
     vs_visible[vs_visible['visible']==1].to_file('data/outputs/viewshed_visible.shp') # select polygons with value of 1, exports to output location
 vs_visible_select()
 
 def lcm_clip():
-    '''Takes the viewshed shapefile and clips landcover map shapefile'''
+    '''
+    Takes the viewshed shapefile and clips landcover map shapefile
+    '''
     vs_mask = gpd.read_file('data/outputs/viewshed_visible.shp') # viewshed shapefile location
     vs_mask_tm65 = vs_mask.to_crs(epsg=29902) # ensures it is set to TM65 Irish National Grid
     landcover = gpd.read_file('data/inputs/landcover.shp') # landcover map shapefile location
@@ -88,7 +95,9 @@ def lcm_clip():
 lcm_clip()
 
 def lcm_stats():
-    '''Finds area statistics of the clipped landcover map'''
+    '''
+    Finds area statistics of the clipped landcover map
+    '''
     lcm = gpd.read_file('data/outputs/landcover_clipped.shp') # clipped landcover map location
     lcm = lcm.to_crs(epsg=29902) # ensures it is set to TM65 Irish National Grid
     lcm["lcm_area"] = lcm['geometry'].area #creates area geometry values for each attribute
@@ -98,7 +107,9 @@ def lcm_stats():
 lcm_stats()
 
 def create_lcm_map():
-    '''Creates a map plot of the visible landcover'''
+    '''
+    Creates a map plot of the visible landcover
+    '''
     def generate_handles(labels, colors, edge='k', alpha=1):
         lc = len(colors)  # get the length of the color list
         handles = []
