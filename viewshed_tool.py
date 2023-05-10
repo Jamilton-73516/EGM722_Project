@@ -97,6 +97,8 @@ lcm_clip()
 def lcm_stats():
     '''
     Finds area statistics of the clipped landcover map
+
+    Prints these in km2 to 6 dp
     '''
     lcm = gpd.read_file('data/outputs/landcover_clipped.shp') # clipped landcover map location
     lcm = lcm.to_crs(epsg=29902) # ensures it is set to TM65 Irish National Grid
@@ -109,6 +111,10 @@ lcm_stats()
 def create_lcm_map():
     '''
     Creates a map plot of the visible landcover
+
+    Contains legend and scalebar which must be edited to suit the dataset
+
+    See comments for relevant sections
     '''
     def generate_handles(labels, colors, edge='k', alpha=1):
         lc = len(colors)  # get the length of the color list
@@ -176,4 +182,3 @@ def create_lcm_map():
 
     myFig.savefig('data/outputs/landcover_map.png', bbox_inches='tight', dpi=300) # Save map figure to desired location and filetype. bbox_inches='tight' crops the image to the axis. 300 dots per inch
 create_lcm_map()
-
